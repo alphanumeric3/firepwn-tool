@@ -85,19 +85,24 @@
 				<p>Enter your <a href='https://firebase.google.com/docs/web/setup#config-object' target="_blank" rel="noopener noreferrer"><i>firebaseConfig</i></a> object below:</p>
 
 				<div class="input-field col s3">
-						<input type="text" name="apiKey" id="apiKey" required />
+						<textarea name="firebaseConfig" id="firebaseConfig" class="materialize-textarea" style="font-family: Consolas, 'Courier New', Courier, monospace"></textarea>
+						<label for="firebaseConfig">firebaseConfig JSON</label>
+				</div>
+				<p>or</p>
+				<div class="input-field col s3">
+						<input type="text" name="apiKey" id="apiKey" />
 						<label for="apiKey">apiKey</label>
 				</div>
 				<div class="input-field col s3">
-						<input type="text" name="authDomain" id="authDomain" required />
+						<input type="text" name="authDomain" id="authDomain" />
 						<label for="authDomain">authDomain</label>
 				</div>
 				<div class="input-field col s3">
-						<input type="text" name="databaseURL" id="databaseURL" required />
+						<input type="text" name="databaseURL" id="databaseURL" />
 						<label for="databaseURL">databaseURL</label>
 				</div>
 				<div class="input-field col s3">
-						<input type="text" name="projectId" id="projectId" required  />
+						<input type="text" name="projectId" id="projectId" />
 						<label for="projectId">projectId</label>
 				</div>
 				<div class="input-field col s3">

@@ -166,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
 
     // fetch json init
+    const input_firebaseConfig = initForm["firebaseConfig"];
     const input_apiKey = initForm["apiKey"];
     const input_authDomain = initForm["authDomain"];
     const input_databaseURL = initForm["databaseURL"];
@@ -173,8 +174,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const input_storageBucket = initForm["storageBucket"];
     const input_btnInit = initForm["btn-init"];
 
+	// try parsing the JSON input first
+	let parsedFirebaseConfig = null;
+	if (input_firebaseConfig.value) {
+		try {
+			parsedFirebaseConfig = JSON.parse(input_firebaseConfig.value)
+		} catch(e) {
+	        console.log(e);
+      		showToast(e.message);
+		}
+	}
+
     // create a firebaseConfig
-    const firebaseConfig = {
+    const firebaseConfig = parsedFirebaseConfig ?? {
       apiKey: input_apiKey.value,
       authDomain: input_authDomain.value,
       databaseURL: input_databaseURL.value,
@@ -210,6 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // update DOM
     const initInputs = [
+      input_firebaseConfig,
       input_apiKey,
       input_authDomain,
       input_databaseURL,
